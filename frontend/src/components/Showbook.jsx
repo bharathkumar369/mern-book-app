@@ -25,7 +25,7 @@ const Showbook = () => {
   })
 
   return (
-    <div className='p-4'>
+    <main className='p-4'>
       <BackButton />
       <h1 className='text-3xl my-4 '> show book</h1>
       {loading ? (
@@ -65,7 +65,7 @@ const Showbook = () => {
 
         </section>
       )}
-    </div>
+    </main>
   )
 }
 
