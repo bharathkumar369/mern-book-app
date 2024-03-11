@@ -1,19 +1,20 @@
 import express from "express";
 import { mongoDBURL } from "./config.js"
 import mongoose from "mongoose";
-import Book from "./models/bookModel.js";
+// import Book from "./models/bookModel.js";
 import bookRoutes from "./routes/bookRoutes.js";
-import cors from "cors";
+import cors from "cors"
 
 const app = express();
 
 const port = 5500;
 
 app.use(express.json());
-app.use("/books", bookRoutes )
+
+app.use(cors());
 
 // app.use(cors({
-//     origin: "http://localhost:5500",
+//     origin: 'http://localhost:5173',
 //     methods: ["GET","POST","PUT","DELETE"],
 //     allowedHeaders: ["Content-Type"]
 // }))
@@ -23,7 +24,7 @@ app.get("/", (req,res)=>{
     return res.status(234).send("welcome to MERN-BOOK-APP")
 })
 
-
+app.use("/books", bookRoutes )
 
 mongoose.connect(mongoDBURL)
     .then(()=> {
